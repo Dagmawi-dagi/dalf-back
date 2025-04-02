@@ -135,13 +135,12 @@ exports.common_controller =  (model)=>{
     if (!model) return next(new app_error_feedback(500, `Model ${model} not found`))
       const { id } = req.params
       try {
-        await model.update(req.body, { where: { id }})
+        await model.destroy({ where: { id }})
         res.status(204).json({ status: 'success'})
       } catch (err) {next(err)}
   }
 
   //----------------------------------IF mongodd---------------------------------------//
-
 
   // controller to create a mogodb doc
   const create = async(req,res,next)=>{

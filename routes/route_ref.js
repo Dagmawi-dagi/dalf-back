@@ -113,6 +113,23 @@ exports.routes_ref = [
           add_createdBy: false,
         },
       },
+      { 
+        url: '/:id', 
+        req_method: 'delete',
+        auth: false,
+        restrict_to:[],
+        upload: {},
+        image_upload:false,
+        save_file_to: '',
+        req_body_validation:false,
+        filter_reqBody_with:[],
+        controller:{
+          model: 'test2',
+          crud_method: 'Delete_sequelize',
+          common: true,
+          add_createdBy: false,
+        },
+      },
     ],
   },
   // complete user routes for any project
