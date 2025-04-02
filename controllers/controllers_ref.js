@@ -3,8 +3,5 @@
 exports.controllers_ref = {
   test : require('./test'),
   user : require('./user'),
-
-  // companywebsite
-  blog : require('./company_website/blog'),
 }
 

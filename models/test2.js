@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('../db/db');
+const { sequelize } = require('../db conection/db');
 
 const Department = sequelize.define('Department', {
   id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
@@ -8,6 +8,12 @@ const Department = sequelize.define('Department', {
 }, {
   tableName: 'departments',
   timestamps: true,
+  indexes: [
+    {
+      type: "FULLTEXT",
+      fields: ['name'] // Add fields you want to search on
+    }
+  ]
 });
 
 module.exports.model = Department;

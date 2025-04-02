@@ -22,7 +22,7 @@ module.exports = (err,req,res,next)=>{
     err.statusCode = err.statusCode || 500
     err.status = err.status || Error
 
-    console.log( {global_error_handler: err} ); // but for the res the err to be sent should be handled defferently
+    console.log(err); // but for the res the err to be sent should be handled defferently
 
     if (process.env.NODE_ENV === 'development') {
         sendErrorOnDev(err,res)
@@ -36,12 +36,11 @@ module.exports = (err,req,res,next)=>{
             return   sendErrorOnProd(error,res)
         }
         if (err.code === 11000 ) {
-            
             // const value = err.errmsg.match(/(["'])(\\?.)*?\1/)[0];
             const error =  new app_error_feedback(400, `${keys(err.keyValue )} already in use`)
             return  sendErrorOnProd(error,res)
         } 
-        if (err.name === 'ValidationError') {
+        if (err.name === 'ValidationError') { 
             const error = new app_error_feedback(400,`ValidatorError :  ${err.message}`)
             return  sendErrorOnProd(error,res)
         }
@@ -56,6 +55,13 @@ module.exports = (err,req,res,next)=>{
 
         if( err.name === 'MulterError' && err.code === 'LIMIT_UNEXPECTED_FILE' ){
             const error = new app_error_feedback(400,`Unexpected file uplode OR Unexpected many file uplode with fieldName :  ${err.field} `)
+            return  sendErrorOnProd(error,res)
+        }
+
+
+        //-----------------------------------------mysql error-----------------------------------------//
+        if ( err.errors ) {
+            const error = new app_error_feedback(400,`ValidationError ${err.errors.map(error => { return error.message })}`)
             return  sendErrorOnProd(error,res)
         }
         

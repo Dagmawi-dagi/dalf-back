@@ -8,7 +8,6 @@ const { my_schema } = require('../models/test');
 const {generateJoiSchema} = require('../features/joi_validator')
 
 exports.test = catchAsync(async(req,res,next)=>{
-
   //  use this below for trasaction operations
   // Key Points to Remember:
   // Session: A session is needed to group operations and manage transactions in Mongoose. It’s created using mongoose.startSession().
@@ -42,8 +41,5 @@ exports.test = catchAsync(async(req,res,next)=>{
 
 })
 
-
-exports.test2 = catchAsync(async(req,res,next)=>{
-
-
+exports.test_sequelize = catchAsync(async(req,res,next)=>{
 })
