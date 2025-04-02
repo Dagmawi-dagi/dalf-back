@@ -16,5 +16,11 @@ const Department = sequelize.define('Department', {
   ]
 });
 
+// Method 3 via the direct method
+// User.beforeCreate(async (user, options) => {
+//   const hashedPassword = await hashPassword(user.password);
+//   user.password = hashedPassword;
+// });
+
 module.exports.model = Department;
-module.exports.schema = Department.getAttributes()
+module.exports.schema = Department.getAttributes() // REFERN CONST OBJ {}s
