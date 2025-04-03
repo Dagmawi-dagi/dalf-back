@@ -8,6 +8,7 @@ const schema = {
   id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
   subject: { type:  DataTypes.STRING, allowNull: false },
   content: { type: DataTypes.JSON, allowNull: false },
+  createdBy:{ type:  DataTypes.INTEGER, allowNull: true }, // allowNull: true since midllere ware will be if Just pass let Joi validator
 }
 
 const newsletter = sequelize.define('Newsletter', schema, {
@@ -15,36 +16,34 @@ const newsletter = sequelize.define('Newsletter', schema, {
   timestamps: true,
 });
 
-// newsletter.belongsTo(User, { foreignKey: 'createdBy', targetKey: 'id' });
 
-// newsletter.associate = (models)=>{
-//   // Recipients (many-to-many with newsletter_sub)
-//   newsletter.belongsToMany(NewsletterSub, {
-//     through: ' ', // Junction table name
-//     foreignKey: 'newsletterId', // Links to Newsletter
-//     otherKey: 'subId', // Links to newsletter_sub
-//     as: 'recipients', // Alias for eager loading
-//   });
+newsletter.associate = (models)=>{
+  newsletter.belongsTo(models.user, { foreignKey: 'createdBy', targetKey: 'id' });
 
-//   // Successful Recipients
-//   newsletter.belongsToMany(NewsletterSub, {
-//     through: 'NewsletterSuccessfulRecipients',
-//     foreignKey: 'newsletterId',
-//     otherKey: 'subId',
-//     as: 'successfulRecipients',
-//   });
+  // Recipients (many-to-many with newsletter_sub)
+  newsletter.belongsToMany(models.newsletter_subs, {
+    through: 'newsletter_recipients', // Junction table name
+    as: 'recipients', // Alias for eager loading (when populating)
+  });
 
-//   // Failed Recipients
-//   newsletter.belongsToMany(NewsletterSub, {
-//     through: 'NewsletterFailedRecipients',
-//     foreignKey: 'newsletterId',
-//     otherKey: 'subId',
-//     as: 'failedRecipients',
-//   });
+  // Successful Recipients
+  newsletter.belongsToMany(models.newsletter_subs, {
+    through: 'newsletter_successful_recipients',
+    as: 'successful_recipients',
+  });
 
-// }
+  // Failed Recipients
+  newsletter.belongsToMany(models.newsletter_subs, {
+    through: 'newsletter_failed_recipients',
+    as: 'failed_recipients',
+  });
+
+}
 
 
+newsletter.beforeCreate('', async function (model,options){
+
+})
 
 // pre save middler ware to send newsletter to subscribers
 // newsletter_Schema.pre('save', async function(next){

@@ -10,8 +10,8 @@ exports.common_controller =  (model)=>{
     if (!model) return next(new app_error_feedback(500, `Model ${model} not found`));
     try {
       const createObj = {...req.body} 
-      // if the route_ref has add_createdBy then get the user from the req.user and {createdBy: req.user._id} will be added to the req.body
-      if(req.route_ref.controller.add_createdBy) createObj.createdBy = req.user._id
+      // if the route_ref has add_createdBy then get the user from the req.user and {createdBy: req.user.id} will be added to the req.body
+      if(req.route_ref.controller.add_createdBy) createObj.createdBy = req.user.id
       const data = await model.create(createObj)
       res.status(200).json({ 
         status: 'success',

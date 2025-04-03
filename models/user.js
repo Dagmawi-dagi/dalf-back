@@ -51,9 +51,8 @@ const user = sequelize.define('user', schema, {
 //---------- create our relationships--------------//
 
 user.associate = function (models){
-  user.hasMany(models.blog, {
-    foreignKey: 'createdBy', // Foreign key in the Blog table
-  });
+  user.hasMany(models.blog, { foreignKey: 'createdBy' });
+  user.hasMany(models.news_letter, { foreignKey: 'createdBy' });
 }
 
 // hashing the password on save

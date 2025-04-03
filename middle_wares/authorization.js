@@ -7,8 +7,8 @@ exports.restrict_to = (roles)=>{
   return catchAsync(async (req,res,next)=>{
 
     // if the roles array is [ids] populate them
-      const user = await models_ref.user.model.findById(req.user._id).populate('role','department_name -_id')
-      const user_roles_Array =  user.role.map(obj=>{ return obj.department_name});
+      const user = await models_ref.user.model.findByPk(req.user._id,{include: ['role']})
+      // const user_roles_Array =  user.role.map(obj=>{ return obj.department_name });
 
     // if the roles is [String]
       // const user = await models.user.findById(req.user._id)

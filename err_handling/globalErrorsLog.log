@@ -1263,3 +1263,11 @@ Require stack:
 [2025-04-03T00:43:57.461Z] /api/test?include=blogs  400 Invalid associations: blogs. Valid options are: Blogs   
 [2025-04-03T00:44:06.699Z] /api/test?include=blogs  400 include relation 'blogs' not found  
 >>>>>>> Stashed changes
+[2025-04-03T02:08:08.226Z] /api/newsletter/  400 JsonWebTokenError :  jwt malformed  
+[2025-04-03T02:08:13.463Z] /api/user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-03T02:08:20.531Z] /api/newsletter/  400 JsonWebTokenError :  jwt malformed  
+[2025-04-03T02:08:46.636Z] /api/newsletter/  400 SValidationError Newsletter.createdBy cannot be null  
+[2025-04-03T02:11:56.681Z] /api/newsletter/  400 Unknown column 'createdBy' in 'field list'  
+[2025-04-03T02:13:33.274Z] /api/newsletter/  400 Unknown column 'createdBy' in 'field list'  
+[2025-04-03T02:15:35.433Z] /api/newsletter/  401 the token owner (user) does n't exist anymore  
+[2025-04-03T02:16:36.574Z] /api/newsletter/  404 route for '/api/newsletter/' not found   
