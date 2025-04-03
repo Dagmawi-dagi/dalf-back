@@ -2,6 +2,7 @@ const { keys } = require('lodash')
 const app_error_feedback = require('./app_error_feedback')
 const fs = require('fs');
 const path = require('path');
+const Sequelize = require('sequelize')
 
 const logFilePath = path.join(__dirname, 'globalErrorsLog.log');
 
@@ -40,7 +41,7 @@ module.exports = (err,req,res,next)=>{
             const error =  new app_error_feedback(400, `${keys(err.keyValue )} already in use`)
             return  sendErrorOnProd(error,res)
         } 
-        if (err.name === 'ValidationError') { 
+        if (err.name === 'ValidationError') { // mongoose validation error
             const error = new app_error_feedback(400,`ValidatorError :  ${err.message}`)
             return  sendErrorOnProd(error,res)
         }
@@ -60,9 +61,22 @@ module.exports = (err,req,res,next)=>{
 
 
         //-----------------------------------------mysql error-----------------------------------------//
-        if ( err.errors ) {
-            const error = new app_error_feedback(400,`ValidationError ${err.errors.map(error => { return error.message })}`)
+        if ( err.errors ) { // sequlize validation errors
+            const error = new app_error_feedback(400,`SValidationError ${err.errors.map(error => { return error.message })}`)
             return  sendErrorOnProd(error,res)
+        }
+        if ( err.parent?.code === 'ER_BAD_FIELD_ERROR' ) { 
+            const error = new app_error_feedback(400,`${err.parent.sqlMessage }`)
+            return  sendErrorOnProd(error,res)
+        }
+        if ( err.parent?.code === 'ER_NO_SUCH_TABLE' ) { 
+            const error = new app_error_feedback(400,`${err.parent.sqlMessage }`)
+            return  sendErrorOnProd(error,res)
+        }
+
+        if (err instanceof Sequelize.EagerLoadingError) {
+            const error = new app_error_feedback(400,`Invalid association: ${err.message.replace(/.*?(associated to.*?)\s*$/, "$1")}` );
+            return sendErrorOnProd(error, res);
         }
         
         sendErrorOnProd(err,res)

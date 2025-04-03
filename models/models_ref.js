@@ -2,7 +2,6 @@
 exports.models_ref = {
   // test
   test: require('./test'),
-  test2: require('./test2'),
   // user
   user: require('./user'),
   // HR

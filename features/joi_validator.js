@@ -1,4 +1,6 @@
 const Joi = require('joi');
+const { DataTypes } = require('sequelize');
+
 /**
  * Generate Joi schema based on a Sequelize model definition.
  * @param {Object} sequelizeModelShema - The Sequelize model definition (model.rawAttributes)
@@ -48,11 +50,12 @@ exports.generateJoiSchema = (sequelizeModelShema, schemaName) => {
     }
 
     // Handle Arrays of value using the equelize model definition meta data
-    else if (field.type === DataTypes.JSON) { 
-        if (field.arrayOfStrings === true) {
-            schema = Joi.array().items(Joi.string()); // Validate as an array of strings
+    else if (field.type instanceof DataTypes.JSON) { 
+        if (field.arrayOfStrings && field.allowed) {
+          schema = Joi.array().items(Joi.string().valid(...field.allowed)) ; // Validate as an array of strings
+        }else{
+          schema = Joi.object();
         }
-        schema = Joi.array();
     }
 
     // Handle Foreign Keys
@@ -99,7 +102,7 @@ exports.generateJoiSchema = (sequelizeModelShema, schemaName) => {
       'date.base': `${schemaName}'s ${key} should be a valid date`,
       'array.base': `${schemaName}'s ${key} should be an array`,
       'any.required': `${schemaName}'s ${key} is a required field`,
-      'any.only': `${schemaName}'s ${key} must be one of the allowed values: {#valids}`,
+      'any.only': `${schemaName}'s ${key} must be of the allowed values: {#valids}`,
       'any.custom': `{#message}`
     });
 
@@ -144,6 +147,9 @@ exports.generateJoiSchema = (sequelizeModelShema, schemaName) => {
   
 //     // Boolean field with a default value
 //     isActive: {
+//       type: DataTypes.BOOLEAN,
+//       defaultValue: true,
+//     } {
 //       type: DataTypes.BOOLEAN,
 //       defaultValue: true,
 //     },

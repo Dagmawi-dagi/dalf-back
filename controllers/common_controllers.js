@@ -2,6 +2,7 @@ const app_error_feedback = require('../err_handling/app_error_feedback');
 const qs = require("qs");
 const { Op, } = require('sequelize');
 const { sequelize } = require('../db conection/db');
+ 
 
 exports.common_controller =  (model)=>{
   //----------------------------------IF mysql---------------------------------------//
@@ -51,7 +52,7 @@ exports.common_controller =  (model)=>{
       // Filtering (convert MongoDB-like syntax to Sequelize `Op` operators)
       let where = {};
       Object.keys(queryObj).forEach(key => {
-        if (["page", "perPage", "sort", "fields", "search"].includes(key)) return;
+        if (["page", "perPage", "sort", "fields", "search","include"].includes(key)) return;
         let value = queryObj[key];
         if (typeof value === "string") {
           if (value.startsWith(">=")) where[key] = { [Op.gte]: value.slice(2) };
@@ -75,11 +76,20 @@ exports.common_controller =  (model)=>{
       }
 
       // Include Relationships (Population)
-      let include = [];
-      // if (queryObj.populate) {
-      //   let relations = queryObj.populate.split(",");
-      //   include = relations.map(relation => ({ model: require(`../models/${relation}`) }));
-      // }
+      let include = []
+      if (queryObj.include) {
+
+        let relations = queryObj.include.split(",");
+        include = relations.map(relation => {
+          // Dynamically load the model from models_ref
+          const relatedModel = require("../models/models_ref").models_ref[relation]?.model;
+          if (!relatedModel) {
+            next(new app_error_feedback(400, `include relation '${relation}' not found`));
+          }
+          return { model: relatedModel };
+        });
+      }
+
       // Execute Query with Sequelize
       let data = await model.findAll({
         where,

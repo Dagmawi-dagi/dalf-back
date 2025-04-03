@@ -25,6 +25,7 @@ exports.customize_process_req = ()=>{
     // strip out fields from the req.body if Not defined on the schema using {stripUnknown: true} option
     const { error } = generateJoiSchema(mongooseSchema,req.route_ref.req_body_validation.schemaName).validate(req.body,{stripUnknown: true})
     if( error )  {
+      error.name = 'jValidationError' // to differ the other validation error just for developer ease of use
       next(new app_error_feedback(400,error)) 
       return
     }
