@@ -57,7 +57,7 @@ exports.routes_ref = [
         filter_reqBody_with:[],
         controller:{
           model: 'test2',
-          crud_method: 'create_sequelize',
+          crud_method: 'create',
           common: true,
           add_createdBy: false,
         },
@@ -74,7 +74,7 @@ exports.routes_ref = [
         filter_reqBody_with:[],
         controller:{
           model: 'test2',
-          crud_method: 'getList_sequelize',
+          crud_method: 'getList',
           common: true,
           add_createdBy: false,
         },
@@ -91,7 +91,7 @@ exports.routes_ref = [
         filter_reqBody_with:[],
         controller:{
           model: 'test2',
-          crud_method: 'getOne_sequelize',
+          crud_method: 'getOne',
           common: true,
           add_createdBy: false,
         },
@@ -108,7 +108,7 @@ exports.routes_ref = [
         filter_reqBody_with:[],
         controller:{
           model: 'test2',
-          crud_method: 'update_sequelize',
+          crud_method: 'update',
           common: true,
           add_createdBy: false,
         },
@@ -125,7 +125,7 @@ exports.routes_ref = [
         filter_reqBody_with:[],
         controller:{
           model: 'test2',
-          crud_method: 'Delete_sequelize',
+          crud_method: 'Delete',
           common: true,
           add_createdBy: false,
         },
@@ -341,9 +341,7 @@ exports.routes_ref = [
       },
     ],
   },
-
-  // -------------------- company website routes--------------------------//
-  // --------------- Blog ------------------------//
+  // ------------------------ Blog ----------------------------------------//
   {
     route_for : 'blog',
     base_url : '/blog',
@@ -460,7 +458,6 @@ exports.routes_ref = [
       },
     ],
   },
-
   // ------------------------ vacancy -------------------------------------//
   {
     route_for : 'vacancy',
@@ -570,8 +567,7 @@ exports.routes_ref = [
       },
     ],
   },
-
-  // ------------------- news letter -------------------------------------/
+  // ------------------------ news letter ---------------------------------//
   {
     route_for : 'newsletter',
     base_url : '/newsletter',
@@ -724,248 +720,4 @@ exports.routes_ref = [
       },
     ],
   },
-
-  // // external_medical_doc
-  // {
-  //   route_for : 'external_medical_doc',
-  //   base_url : '/external_medical_doc',
-  //   controller_file: 'external_medical_doc', 
-  //   api: [
-  //     { 
-  //       url: '/create', 
-  //       req_method: 'post',
-  //       auth: true,
-  //       restrict_to:[],
-  //       upload: { uploadType: 'array', fileType: 'image', fieldName: 'scanned_docs', maxCount:20},
-  //       image_upload : true,
-  //       save_file_to: 'scanned_docs',
-  //       req_body_validation:false,
-  //       filter_reqBody_with: [],
-  //       controller:{
-  //         crud_method: 'create',
-  //         model:'external_medical_doc',
-  //         common: true,
-  //       },  
-  //     },
-  //     { 
-  //       url: '/:id', 
-  //       req_method: 'patch',
-  //       auth: false,
-  //       restrict_to:[],
-  //       upload: {},
-  //       image_upload:false,
-  //       save_file_to: '',
-  //       req_body_validation:false,
-  //       filter_reqBody_with:['pateint_archive','scanned_docs','comment'],
-  //       controller:{
-  //         crud_method: 'update',
-  //         model:'external_medical_doc',
-  //         common: true,
-  //       },
-  //     },
-  //   ],
-  // },
-  // // emergency_contact
-  // {
-  //   route_for : 'emergency_contact',
-  //   base_url : '/emergency_contact',
-  //   controller_file: 'emergency_contact', 
-  //   api: [
-  //     { 
-  //       url: '/create', 
-  //       req_method: 'post',
-  //       auth: false,
-  //       restrict_to:[],
-  //       upload: {},
-  //       image_upload:false,
-  //       save_file_to: '',
-  //       req_body_validation:false,
-  //       filter_reqBody_with:[],
-  //       controller:{
-  //         crud_method: 'create',
-  //         model: 'emergency_contact',
-  //         common: true
-  //       },
-  //     },
-  //     { 
-  //       url: '/:id', 
-  //       req_method: 'patch',
-  //       auth: false,
-  //       restrict_to:[],
-  //       upload: {},
-  //       image_upload:false,
-  //       save_file_to: '',
-  //       req_body_validation:false,
-  //       filter_reqBody_with:['name','phone_number','pateint_archive'],
-  //       controller:{
-  //         crud_method: 'create',
-  //         model: 'emergency_contact',
-  //         common: true
-  //       },
-  //     },
-  //   ],
-  // },
-  // // store
-  {
-    route_for : 'store',
-    base_url : '/store',
-    controller_file: 'store',
-    api: [
-      { 
-        url: '/', 
-        req_method: 'post',
-        auth: true,
-        restrict_to:[],
-        upload: {},
-        image_upload:false,
-        save_file_to: '',
-        req_body_validation:false,
-        filter_reqBody_with:[],
-        controller:{
-          model: 'store_item',
-          crud_method: 'create',
-          common: true,
-          add_createdBy:true
-        },
-      },
-      { 
-        url: '/', 
-        req_method: 'get',
-        auth: true,
-        restrict_to:[],
-        upload: {},
-        image_upload:false,
-        save_file_to: '',
-        req_body_validation:false,
-        filter_reqBody_with:[],
-        controller:{
-          model: 'store_item',
-          crud_method: 'getList',
-          common: true
-        },
-      },
-      { 
-        url: '/requested_items', 
-        req_method: 'get',
-        auth: true,
-        restrict_to:[],
-        upload: {},
-        image_upload:false,
-        save_file_to: '',
-        req_body_validation:false,
-        filter_reqBody_with:[],
-        controller:{
-          model: 'store_request',
-          crud_method: 'getList',
-          common: true,
-          add_createdBy:true
-        },
-      },
-    ],
-  },
-  // // department
-  {
-    route_for : 'department',
-    base_url : '/department',
-    controller_file: 'department', 
-    api: [
-      { 
-        url: '/', 
-        req_method: 'get',
-        auth: true,
-        restrict_to:[],
-        upload: {},
-        image_upload:false,
-        save_file_to: '',
-        req_body_validation:false,
-        filter_reqBody_with:[],
-        controller:{
-          model: 'department',
-          crud_method: 'getList',
-          common: true
-        },
-      },
-      { 
-        url: '/', 
-        req_method: 'post',
-        auth: true,
-        restrict_to:[],
-        upload: {},
-        image_upload:false,
-        save_file_to: '',
-        req_body_validation:false,
-        filter_reqBody_with:[],
-        controller:{
-          model: 'department',
-          crud_method: 'create',
-          common: true,
-          add_createdBy:true
-        },
-      },
-    ],
-  },
-  // // employee
-  // {
-  //   route_for : 'employee',
-  //   base_url : '/employee',
-  //   controller_file: 'employee', 
-  //   api: [
-  //     { 
-  //       url: '/', 
-  //       req_method: 'get',
-  //       auth: true,
-  //       restrict_to:[],
-  //       upload: {},
-  //       image_upload:false,
-  //       save_file_to: '',
-  //       req_body_validation:false,
-  //       filter_reqBody_with:[],
-  //       controller:{
-  //         model: 'employee',
-  //         crud_method: 'getList',
-  //         common: true
-  //       },
-  //     },
-  //     { 
-  //       url: '/register', 
-  //       req_method: 'post',
-  //       auth: true,
-  //       restrict_to:[],
-  //       upload: {},
-  //       image_upload:false,
-  //       save_file_to: '',
-  //       req_body_validation:false,
-  //       filter_reqBody_with:[],
-  //       controller:{
-  //         model: 'employee',
-  //         crud_method: 'register_employee',
-  //         common: false
-  //       },
-  //     },
-  //   ],
-  // },
-  // // attendance
-  // {
-  //   route_for : 'attendance',
-  //   base_url : '/attendance',
-  //   controller_file: 'attendance', 
-  //   api: [
-  //     { 
-  //       url: '/', 
-  //       req_method: 'get',
-  //       auth: true,
-  //       restrict_to:[],
-  //       upload: {},
-  //       image_upload:false,
-  //       save_file_to: '',
-  //       req_body_validation:false,
-  //       filter_reqBody_with:[],
-  //       controller:{
-  //         model: 'attendance',
-  //         crud_method: 'getList',
-  //         common: true
-  //       },
-  //     },
-  //   ],
-  // },
 ]

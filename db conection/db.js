@@ -1,10 +1,4 @@
-// const mongoose = require('mongoose')
 const { Sequelize } = require('sequelize');
-const { DataTypes } = require('sequelize');
-// mongoose.set('strictQuery', true);
-// mongoose.connect(process.env.localMongoDB_URL)
-//   .then(( ) => console.log('DB connected successfully'))
-//   .catch(err=> console.log(err))
 
 const sequelize = new Sequelize( process.env.MYSQL_DBNAME , process.env.MYSQL_USERNAME, process.env.MYSQL_PASSWORD, {
   host: process.env.MYSQL_HOST , // or your database host IP/domain

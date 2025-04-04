@@ -1,5 +1,4 @@
-// const { generateJoiSchema } = require('../features/joi_validator');
-const { generateJoiSchema } = require('../features/joi_validator_sequelize_schema');
+const { generateJoiSchema } = require('../features/joi_validator');
 const { models_ref } = require('../models/models_ref');
 const app_error_feedback = require('../err_handling/app_error_feedback')
 

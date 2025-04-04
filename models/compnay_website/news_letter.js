@@ -1,50 +1,60 @@
-const mongoose = require('mongoose');
 const Email = require('../../features/email') 
-const { model: newsletter_sub_model } = require('./newsletter_subs') 
+// const { model: newsletter_sub_model } = require('./newsletter_subs') 
 const app_error_feedback = require('../../err_handling/app_error_feedback');
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../../db conection/db');
 
 const schema = {
-  subject: {
-    type: String,
-    required: true,
-    trim: true
+  id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+  subject: { type:  DataTypes.STRING, allowNull: false },
+  content: { type: DataTypes.JSON, allowNull: false },
+  recipients: {  
+    type: DataTypes.JSON,
+    allowNull: false,
+    references: {
+      model: newsletter_sub,
+      key: 'id',
+    },
   },
-  content: {
-    // this will hold quill editors html code 
-    // this will make creating content become much more flexible
-    type: String, 
-    required: true,
-    validate: { // since vuequill will give us thosw value when passed as empty write custom validator to validat those 
-      validator: function(v) {
-        return  (v != "undefined" && v != "<p><br></p>");  
-      },
-      message: () => `vacancy's requirements is a required field`
-    }
-  },
-  // coverImg: [String],
-  // newsletter_sub ids which it makes sending newsletter to all of some easier
-  recipients: [{  
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'newsletter_sub',
-  }],
   // newsletter_sub ids
-  successful_recipients: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'newsletter_sub',
-  }], 
+  successful_recipients: {
+    type: DataTypes.JSON,
+    allowNull: false,
+    references: {
+      model: newsletter_sub,
+      key: 'id',
+    },
+  }, 
   // newsletter_sub ids
-  failed_recipients: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'newsletter_sub',
-  }], 
+  failed_recipients: {
+    type: DataTypes.JSON,
+    allowNull: false,
+    references: {
+      model: newsletter_sub,
+      key: 'id',
+    },
+  }, 
   createdBy:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'user',
-    required:true
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: User,
+      key: 'id',
+    },
   }
 }
 
-const newsletter_Schema = new mongoose.Schema(schema,{ timestamps:true})
+const newsletter = sequelize.define('Newsletter', schema, {
+  tableName: 'newsletters',
+  timestamps: true,
+});
+
+newsletter.belongsTo(User, { foreignKey: 'createdBy', targetKey: 'id' });
+
+
+newsletter.beforeCreate(async (user, options) => {
+
+});
 
 // pre save middler ware to send newsletter to subscribers
 newsletter_Schema.pre('save', async function(next){
@@ -106,5 +116,5 @@ newsletter_Schema.pre('save', async function(next){
   }
 })
 
-module.exports.model = mongoose.model('newsletter',newsletter_Schema)
+module.exports.model = newsletter
 module.exports.schema = schema
