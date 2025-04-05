@@ -18,6 +18,8 @@ app.options('*', cors())
 const access_log_stream = fs.createWriteStream(__dirname + "/log/access.log", {
   flags:  'a',
 });
+
+
 app.use(morgan("combined", { stream: access_log_stream }));
 app.use(morgan('dev'))
 // body parser

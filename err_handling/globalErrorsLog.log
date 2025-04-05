@@ -1,0 +1,123 @@
+[2025-04-04T21:19:07.857Z] /api/test  400 jValidationError: test's userName is a required field  
+[2025-04-04T21:19:25.978Z] /api/test?include=asd  400 include relation 'asd' not found  
+[2025-04-04T21:19:33.825Z] /api/test?include=blog  400 Invalid association: associated to user!  
+[2025-04-04T21:19:50.513Z] /api/test?include=user  400 Invalid association: associated to user!  
+[2025-04-04T21:19:55.668Z] /api/test?include=blog  400 Invalid association: associated to user!  
+[2025-04-04T21:19:59.664Z] /api/test?include=blogs  400 include relation 'blogs' not found  
+[2025-04-04T21:20:10.761Z] /api/test?include=blog  400 Invalid association: associated to user!  
+[2025-04-04T21:20:59.268Z] /api/test?include=blogs  400 include relation 'blogs' not found  
+[2025-04-04T21:21:37.306Z] /api/test?include=blog  400 Invalid association: associated to user!  
+[2025-04-04T21:23:48.522Z] /api/test?include=blogs  400 include relation 'blogs' not found  
+[2025-04-04T21:23:58.792Z] /api/test?include=user  400 Invalid association: associated to user!  
+[2025-04-04T21:24:03.459Z] /api/test?include=usaersd  400 include relation 'usaersd' not found  
+[2025-04-04T21:24:12.709Z] /api/test?include=user  400 Invalid association: associated to user!  
+[2025-04-04T21:32:14.098Z] /api/user/sign_up  404 route for '/api/user/sign_up' not found   
+[2025-04-04T21:32:19.525Z] /api/user/sign_up  400 SValidationError user.email cannot be null,user.phoneNumber cannot be null,user.userPassword cannot be null  
+[2025-04-04T21:32:49.429Z] /api/user/sign_up  400 SValidationError user.email cannot be null,user.phoneNumber cannot be null,user.userPassword cannot be null  
+[2025-04-04T21:32:51.791Z] /api/user/sign_up  400 SValidationError user.email cannot be null,user.phoneNumber cannot be null,user.userPassword cannot be null  
+[2025-04-04T21:33:05.877Z] /api/user/sign_up  400 SValidationError user.email cannot be null,user.phoneNumber cannot be null,user.userPassword cannot be null  
+[2025-04-04T21:37:07.572Z] /api/user/sign_up  500 Cannot read properties of undefined (reading 'schema')  {"statusCode":500}
+[2025-04-04T21:37:56.523Z] /api/user/sign_up  400 jValidationError: user's userName is a required field  
+[2025-04-04T21:38:23.392Z] /api/user/sign_up  400 jValidationError: user's email is a required field  
+[2025-04-04T21:38:32.518Z] /api/user/sign_up  400 jValidationError: "email" must be a valid email  
+[2025-04-04T21:38:40.052Z] /api/user/sign_up  400 jValidationError: "email" must be a valid email  
+[2025-04-04T21:38:44.986Z] /api/user/sign_up  400 jValidationError: user's phoneNumber is a required field  
+[2025-04-04T21:39:04.255Z] /api/user/sign_up  400 Unexpected number in JSON at position 80 (line 4 column 21)  
+[2025-04-04T21:39:22.163Z] /api/user/sign_up  400 jValidationError: user's phoneNumber should be a type of 'text'  
+[2025-04-04T21:39:45.503Z] /api/user/sign_up  400 jValidationError: user's userPassword is a required field  
+[2025-04-04T21:39:50.134Z] /api/user/sign_up  400 jValidationError: user's userPassword is a required field  
+[2025-04-04T21:41:16.786Z] /api/user/sign_up  400 SValidationError userName must be unique  
+[2025-04-04T21:41:21.782Z] /api/user/sign_up  400 SValidationError email must be unique  
+[2025-04-04T21:41:26.249Z] /api/user/sign_up  400 SValidationError phoneNumber must be unique  
+[2025-04-04T21:43:39.668Z] /api/user/sign_up  400 SValidationError userName must be unique  
+[2025-04-04T21:55:47.491Z] /api//user/sign_up  400 SValidationError userName must be unique  
+[2025-04-04T21:56:09.948Z] /api//user/sign_in  404 route for '/api//user/sign_in' not found   
+[2025-04-04T22:04:08.746Z] /api//user/sign_in  400 Unexpected number in JSON at position 22 (line 2 column 20)  
+[2025-04-04T22:05:56.387Z] /api//user/sign_in  500 data and hash arguments required  {"statusCode":500}
+[2025-04-04T22:07:17.286Z] /api//user/sign_in  500 data and hash arguments required  {"statusCode":500}
+[2025-04-04T22:10:11.339Z] /api//user/sign_in  500 data and hash arguments required  {"statusCode":500}
+[2025-04-04T22:10:28.918Z] /api//user/sign_up  400 SValidationError userName must be unique  
+[2025-04-04T22:16:35.812Z] /api//user/sign_up  400 SValidationError userName must be unique  
+[2025-04-04T22:17:53.608Z] /api//user/sign_in  500 data and hash arguments required  {"statusCode":500}
+[2025-04-04T22:28:50.088Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:29:02.000Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:30:32.915Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:30:40.822Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:30:47.679Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:31:08.881Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:31:10.847Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:31:43.644Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:32:39.175Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:32:58.745Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:34:05.682Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:34:26.569Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:35:26.384Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:36:34.489Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:36:44.680Z] /api//user/sign_up  500 model.isNewRecord is not a function  {"statusCode":500}
+[2025-04-04T22:37:22.753Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:37:32.389Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T22:55:08.564Z] /api//user/sign_up  400 SValidationError userName must be unique  
+[2025-04-04T23:01:43.246Z] /api//user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T23:07:58.635Z] /api/user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T23:08:31.081Z] /api/user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T23:08:38.446Z] /api/user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T23:08:51.008Z] /api/user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T23:10:03.084Z] /api/user/get_me  500 userModel.model.findById is not a function  {"statusCode":500}
+[2025-04-04T23:12:16.977Z] /api/user/get_me  401 the token owner (user) does n't exist anymore  
+[2025-04-04T23:12:32.285Z] /api/user/get_me  401 the token owner (user) does n't exist anymore  
+[2025-04-04T23:16:01.988Z] /api/user/get_user  404 route for '/api/user/get_user' not found   
+[2025-04-04T23:16:22.093Z] /api/user/get_user  404 route for '/api/user/get_user' not found   
+[2025-04-04T23:16:24.249Z] /api/user/get_user  404 route for '/api/user/get_user' not found   
+[2025-04-04T23:17:15.926Z] /api/user/get_user/27  500 userModel is not defined  {"statusCode":500}
+[2025-04-04T23:19:48.400Z] /api/user/update_password  404 route for '/api/user/update_password' not found   
+[2025-04-04T23:19:54.048Z] /api/user/update_password  400 please provide currentPassword and newPassword  
+[2025-04-04T23:20:38.016Z] /api/user/update_password  500 userModel is not defined  {"statusCode":500}
+[2025-04-04T23:24:39.772Z] /api/user/update_password  400 The currentPassword you provided is incorrect  
+[2025-04-04T23:24:50.493Z] /api/user/update_password  400 The currentPassword you provided is incorrect  
+[2025-04-04T23:33:14.159Z] /api/user/get_me  401  user recently changed the password please login again  
+[2025-04-04T23:36:16.257Z] /api/user/get_me  401  user recently changed the password please login again  
+[2025-04-04T23:36:26.982Z] /api/user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T23:36:44.332Z] /api/user/update_password  400 The currentPassword you provided is incorrect  
+[2025-04-04T23:37:35.457Z] /api/user/get_me  401 the token owner (user) does n't exist anymore  
+[2025-04-04T23:41:48.613Z] /api/user/update_phoneNumber  404 route for '/api/user/update_phoneNumber' not found   
+[2025-04-04T23:41:54.011Z] /api/user/update_phoneNumber  404 route for '/api/user/update_phoneNumber' not found   
+[2025-04-04T23:42:35.133Z] /api/user/update_password  404 route for '/api/user/update_password' not found   
+[2025-04-04T23:42:41.169Z] /api/user/update_password  404 route for '/api/user/update_password' not found   
+[2025-04-04T23:43:00.346Z] /api/user/update_password  404 route for '/api/user/update_password' not found   
+[2025-04-04T23:43:37.223Z] /api/user/update_phoneNumber  400 please provide currentPassword and newPhoneNumber  
+[2025-04-04T23:43:42.483Z] /api/user/update_password  400 The currentPassword you provided is incorrect  
+[2025-04-04T23:43:59.292Z] /api/user/update_phoneNumber  401  user recently changed the password please login again  
+[2025-04-04T23:44:07.841Z] /api/user/update_phoneNumber  400 please provide currentPassword and newPhoneNumber  
+[2025-04-04T23:44:42.042Z] /api/user/update_phoneNumber  500 userModel is not defined  {"statusCode":500}
+[2025-04-04T23:44:55.648Z] /api/user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T23:47:10.004Z] /api/user/update_phoneNumber  400 JsonWebTokenError :  jwt malformed  
+[2025-04-04T23:47:36.920Z] /api/user/update_phoneNumber  400 JsonWebTokenError :  jwt malformed  
+[2025-04-04T23:47:42.506Z] /api/user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T23:47:57.423Z] /api/user/update_phoneNumber  400 The currentPassword you provided is incorrect  
+[2025-04-04T23:52:00.305Z] /api/user/update_email  400 please provide currentPassword and newEmail  
+[2025-04-04T23:52:24.465Z] /api/user/update_email  500 userModel is not defined  {"statusCode":500}
+[2025-04-04T23:53:55.212Z] /api/user/update_email  400 SValidationError Validation isEmail on email failed  
+[2025-04-04T23:58:17.471Z] /api/user/update_me  401 user recently changed the password please login again  
+[2025-04-04T23:58:22.905Z] /api/user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T23:58:26.480Z] /api/user/update_me  400 JsonWebTokenError :  jwt malformed  
+[2025-04-04T23:58:31.520Z] /api/user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-04T23:58:49.391Z] /api/user/update_me  500 userModel is not defined  {"statusCode":500}
+[2025-04-05T00:12:05.922Z] /api/user/forgot_password  404 route for '/api/user/forgot_password' not found   
+[2025-04-05T00:12:16.921Z] /api/user/forgot_password  404 route for '/api/user/forgot_password' not found   
+[2025-04-05T00:12:31.279Z] /api/user/forgot_password  404 route for '/api/user/forgot_password' not found   
+[2025-04-05T00:12:41.037Z] /api/user/forgot_password  404 route for '/api/user/forgot_password' not found   
+[2025-04-05T00:13:15.046Z] /api/user/forgot_password  400 please provide your email to recive reset-token! to your email  
+[2025-04-05T00:13:42.580Z] /api/user/forgot_password  500 userModel is not defined  {"statusCode":500}
+[2025-04-05T00:14:37.249Z] /api/user/forgot_password  400 No user with this email dagmawishadgu@gmail.com  
+[2025-04-05T00:15:08.742Z] /api/user/forgot_password  400 No user with this email dagmaihadgu@gmail.com  
+[2025-04-05T00:15:17.190Z] /api/user/forgot_password  500 user.createPasswordResetToken is not a function  {"statusCode":500}
+[2025-04-05T00:59:57.834Z] /api/reset_password/02221083cb87b251087d3b19c46e2dd9cd31cf268a2fcc30abe1fef40cb475b8  404 route for '/api/reset_password/02221083cb87b251087d3b19c46e2dd9cd31cf268a2fcc30abe1fef40cb475b8' not found   
+[2025-04-05T01:04:43.081Z] /api/reset_password/02221083cb87b251087d3b19c46e2dd9cd31cf268a2fcc30abe1fef40cb475b8  404 route for '/api/reset_password/02221083cb87b251087d3b19c46e2dd9cd31cf268a2fcc30abe1fef40cb475b8' not found   
+[2025-04-05T01:06:21.352Z] /api/user/reset_password/02221083cb87b251087d3b19c46e2dd9cd31cf268a2fcc30abe1fef40cb475b8  400 please provide your newPassword  
+[2025-04-05T01:07:03.370Z] /api/user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-05T01:08:28.282Z] /api/user/delete_me  404 route for '/api/user/delete_me' not found   
+[2025-04-05T01:08:39.104Z] /api/user/delete_me  404 route for '/api/user/delete_me' not found   
+[2025-04-05T01:08:45.535Z] /api/user/delete_me  404 route for '/api/user/delete_me' not found   
+[2025-04-05T01:08:58.785Z] /api/user/delete_me  500 userModel is not defined  {"statusCode":500}
+[2025-04-05T01:12:13.069Z] /api/user/create  404 route for '/api/user/create' not found   
+[2025-04-05T01:12:21.732Z] /api/user/create  401 the token owner (user) does n't exist anymore  

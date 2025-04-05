@@ -20,11 +20,10 @@ module.exports = class Email {
   // sendPasswordResetEmail
   sendPasswordResetEmail(info){
     const password_reset_email_html_template = renderHtmlTemplate('../views/email/passwordReset.html', info);
-
     return this.transport().sendMail({
       to: info.email,
       form: `Desta Alcohol and Liquor Factory <${process.env.AppGmailAccount}>`,
-      subject: info.subject,
+      subject: 'Your password reset token (valid for 10 minutes)',
       html: password_reset_email_html_template,
       text: convert(password_reset_email_html_template)
     })

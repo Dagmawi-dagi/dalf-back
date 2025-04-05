@@ -18,7 +18,7 @@ exports.customize_process_req = ()=>{
   }
 
   const validate_reqBody = (req,next)=> { 
-    // validate the req,body based on the mongoose shema you have defined for your modela that is to be used on you controller 
+    // validate the req,body based on the model schema you have defined for your model that is to be used on you controller 
     if( !req.route_ref.controller.model || !req.route_ref.req_body_validation ) return
     const mongooseSchema =  models_ref[req.route_ref.controller.model].schema
     // KEY NOTE :: 

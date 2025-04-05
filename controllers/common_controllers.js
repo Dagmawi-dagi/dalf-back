@@ -1,11 +1,9 @@
 const app_error_feedback = require('../err_handling/app_error_feedback');     
 const qs = require("qs");
-const { Op, } = require('sequelize');
+const { Op } = require('sequelize');
 const { sequelize } = require('../db conection/db');
- 
 
 exports.common_controller =  (model)=>{
-  //----------------------------------IF mysql---------------------------------------//
 
   // if the db if my sql
   const create = async(req,res,next)=>{
