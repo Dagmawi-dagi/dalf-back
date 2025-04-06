@@ -1,13 +1,11 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../../db conection/db');
-const { models_ref } = require('../../models/models_ref');
-
 
 const schema = {
   id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-  title: { type:  DataTypes.STRING, allowNull: false},
-  content_short: { type:  DataTypes.STRING, allowNull: false},
-  content: { type:  DataTypes.TEXT, allowNull: false},
+  title: { type:  DataTypes.STRING, allowNull: false,canBeusedForSearchIndex:true},
+  content_short: { type:  DataTypes.STRING, allowNull: false,canBeusedForSearchIndex:true},
+  content: { type:  DataTypes.TEXT, allowNull: false,canBeusedForSearchIndex:true},
   coverImg: { type:  DataTypes.STRING, allowNull: false},
   category:{
     type: DataTypes.JSON,
@@ -24,12 +22,18 @@ const schema = {
       }
     },
   },
-  createdBy:{ type:  DataTypes.INTEGER, allowNull: false},
+  createdBy:{ type:  DataTypes.INTEGER, allowNull: true}, // to pass the joi validation
 }
 
 const blog = sequelize.define('Blog', schema, {
   tableName: 'blogs',
   timestamps: true,
+  indexes: [
+    {
+      type: "FULLTEXT",
+      fields: ['title','content_short','content'] // Add fields you want to search on
+    }
+  ]
 });
 
 //---------- create our relationships--------------//

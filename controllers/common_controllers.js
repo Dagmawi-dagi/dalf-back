@@ -1,6 +1,6 @@
 const app_error_feedback = require('../err_handling/app_error_feedback');     
 const qs = require("qs");
-const { Op } = require('sequelize');
+const { Op,literal } = require('sequelize');
 const { sequelize } = require('../db conection/db');
 
 exports.common_controller =  (model)=>{
@@ -68,8 +68,11 @@ exports.common_controller =  (model)=>{
 
       if (queryObj.search) {
         const stringFields = Object.keys(model.getAttributes())
-        .filter(key => model.getAttributes()[key].type.constructor.name === 'STRING')
+        .filter(key => ((model.getAttributes()[key].type.constructor.name === 'STRING' || model.getAttributes()[key].type.constructor.name === 'TEXT') && model.getAttributes()[key].canBeusedForSearchIndex))
         .map(key => model.getAttributes()[key].field);
+
+        console.log(stringFields);
+        
         where[Op.and] = sequelize.literal(
           `MATCH(${stringFields.join(", ")}) AGAINST ('${queryObj.search}' IN BOOLEAN MODE)`
         );

@@ -464,6 +464,23 @@ exports.routes_ref = [
         },
       },
       { 
+        url: '/applications', 
+        req_method: 'get',
+        auth: false,
+        restrict_to:[],
+        upload: {},
+        image_upload:false,
+        save_file_to: '',
+        req_body_validation:false,
+        filter_reqBody_with:[],
+        controller:{
+          model: 'vacancy_application',
+          crud_method: 'getList',
+          common: true,
+          add_createdBy: false,
+        },
+      },
+      { 
         url: '/:id', 
         req_method: 'get',
         auth: true,

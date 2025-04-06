@@ -17,6 +17,7 @@ exports.auth = catchAsync (async (req,res,next)=>{
     const decoded =  await promisify(JWT.verify)(token,process.env.JWT_SECRET)
     
     // check user if still exists
+    console.log(decoded.id);
     const user =  await models_ref.user.model.findByPk(decoded.id)
 
     if (!user) return next(new app_error_feedback(401,'the token owner (user) does n\'t exist anymore'))

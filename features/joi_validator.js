@@ -55,7 +55,7 @@ exports.generateJoiSchema = (sequelizeModelShema, schemaName) => {
           if( field.allowed) schema = Joi.array().items(Joi.string().valid(...field.allowed)) ; // Validate as an array of strings
           else schema = Joi.array().items(Joi.string()) ; // just an array of strings
         }
-        if (field.arrayOfNumbers) {
+        else if (field.arrayOfNumbers) {
           if( field.allowed)  schema = Joi.array().items(Joi.number().valid(...field.allowed)) ; // Validate as an array of strings
           else schema = Joi.array().items(Joi.number()) ; // just an array of strings
         }
