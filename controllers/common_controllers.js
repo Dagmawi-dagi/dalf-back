@@ -13,6 +13,8 @@ exports.common_controller =  (model)=>{
       // if the route_ref has add_createdBy then get the user from the req.user and {createdBy: req.user.id} will be added to the req.body
       if(req.route_ref.controller.add_createdBy) createObj.createdBy = req.user.id
       const data = await model.create(createObj)
+
+
       res.status(200).json({ 
         status: 'success',
         data
@@ -35,7 +37,7 @@ exports.common_controller =  (model)=>{
       const queryObj = qs.parse(queryStr, { allowDots: true });
       // Default Pagination: If `page` exists, convert it to `offset`
       let page = parseInt(queryObj.page) || 1;
-      let limit = parseInt(queryObj.perPage) || 10;
+      let limit = parseInt(queryObj.perPage) || 100;
       let offset = (page - 1) * limit;
       // Sorting: Convert query sorting to Sequelize format
       let order = [];
@@ -82,7 +84,7 @@ exports.common_controller =  (model)=>{
           // Dynamically load the model from models_ref
           const relatedModel = require("../models/models_ref").models_ref[relation]?.model;
           if (!relatedModel) {
-            next(new app_error_feedback(400, `include relation '${relation}' not found`));
+            next(new app_error_feedback(400, `include relation model '${relation}' not found`));
           }
           return { model: relatedModel };
         });

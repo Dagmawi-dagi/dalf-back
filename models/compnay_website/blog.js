@@ -7,7 +7,7 @@ const schema = {
   id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
   title: { type:  DataTypes.STRING, allowNull: false},
   content_short: { type:  DataTypes.STRING, allowNull: false},
-  content: { type:  DataTypes.STRING, allowNull: false},
+  content: { type:  DataTypes.TEXT, allowNull: false},
   coverImg: { type:  DataTypes.STRING, allowNull: false},
   category:{
     type: DataTypes.JSON,

@@ -6,12 +6,15 @@ const schema = {
   id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
   position_name: { type:  DataTypes.STRING, allowNull: false},
   description: { type:  DataTypes.STRING, allowNull: false},
-  requirements: { type:  DataTypes.STRING, allowNull: false},
-  locations: {
+  requirements: { type:  DataTypes.TEXT, allowNull: false},
+  locations:{
     type: DataTypes.JSON,
     allowNull: false,
+    arrayOfStrings: true,
     validate: {
-      arrayOfStrings: true
+      isArrayOfStrings(value) {
+        if (!Array.isArray(value)) throw new Error('locations must be an array of strings');
+      }
     },
   },
   salary: { type:  DataTypes.STRING, allowNull: false},
@@ -21,6 +24,8 @@ const schema = {
     defaultValue: DataTypes.NOW,
     allowNull: false
   },
+
+  createdBy:{ type:  DataTypes.INTEGER, allowNull: false},
 }
 
 
@@ -29,13 +34,10 @@ const vacancy = sequelize.define('vacancy', schema, {
   timestamps: true,
 });
 
-// vacancy.belongsTo(User, { foreignKey: 'createdBy', targetKey: 'id' });
-
-// vacancy_Schema.virtual('applications',{
-//   ref: 'vacancy_application',
-//   foreignField: 'vacancy',
-//   localField: '_id'
-// });
+vacancy.associate = function (models){
+  vacancy.belongsTo(models.user,  { foreignKey: 'createdBy', targetKey: 'id',});
+  vacancy.hasMany(models.vacancy_application);
+}
 
 module.exports.model = vacancy
 module.exports.schema = schema

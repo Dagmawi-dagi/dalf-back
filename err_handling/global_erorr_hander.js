@@ -15,7 +15,6 @@ function logErrorToFile(error) {
     });
 }
 
-
 // when we call the next() with err arg this globalerrhandler will be called
 module.exports = (err,req,res,next)=>{
     apiurl = req.url // for error loging porposes

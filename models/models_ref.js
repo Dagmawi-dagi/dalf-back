@@ -10,5 +10,5 @@ exports.models_ref = {
   // company website
   blog: require('./compnay_website/blog'),
   newsletter: require('./compnay_website/news_letter'),
-  newsletter_sub: require('./compnay_website/newsletter_subs'),
+  newsletter_sub: require('./compnay_website/newsletter_sub'),
 }
