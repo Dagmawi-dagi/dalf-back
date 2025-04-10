@@ -53,6 +53,16 @@ module.exports = class Email {
     })
   }
 
+  // Contact us
+  contactus(info){
+    return this.transport().sendMail({
+      to: process.env.AppGmailAccount,
+      form: `${info.name},${info.phone}, <${info.email}>`,
+      subject: info.subject,
+      text: content
+    })  
+  }
+
 }
 
 

@@ -1372,3 +1372,69 @@ Require stack:
 [2025-04-06T22:11:37.577Z] /api/blog?search=asd  500 Can't find FULLTEXT index matching the column list  {"name":"SequelizeDatabaseError","parent":{"code":"ER_FT_MATCHING_KEY_NOT_FOUND","errno":1191,"sqlState":"HY000","sqlMessage":"Can't find FULLTEXT index matching the column list","sql":"SELECT `id`, `title`, `content_short`, `content`, `coverImg`, `category`, `createdBy`, `createdAt`, `updatedAt` FROM `blogs` AS `Blog` WHERE MATCH(title, content_short) AGAINST ('asd' IN BOOLEAN MODE) LIMIT 0, 100;"},"original":{"code":"ER_FT_MATCHING_KEY_NOT_FOUND","errno":1191,"sqlState":"HY000","sqlMessage":"Can't find FULLTEXT index matching the column list","sql":"SELECT `id`, `title`, `content_short`, `content`, `coverImg`, `category`, `createdBy`, `createdAt`, `updatedAt` FROM `blogs` AS `Blog` WHERE MATCH(title, content_short) AGAINST ('asd' IN BOOLEAN MODE) LIMIT 0, 100;"},"sql":"SELECT `id`, `title`, `content_short`, `content`, `coverImg`, `category`, `createdBy`, `createdAt`, `updatedAt` FROM `blogs` AS `Blog` WHERE MATCH(title, content_short) AGAINST ('asd' IN BOOLEAN MODE) LIMIT 0, 100;","parameters":{},"statusCode":500}
 [2025-04-06T22:12:41.227Z] /api/blog?search=asd  500 Can't find FULLTEXT index matching the column list  {"name":"SequelizeDatabaseError","parent":{"code":"ER_FT_MATCHING_KEY_NOT_FOUND","errno":1191,"sqlState":"HY000","sqlMessage":"Can't find FULLTEXT index matching the column list","sql":"SELECT `id`, `title`, `content_short`, `content`, `coverImg`, `category`, `createdBy`, `createdAt`, `updatedAt` FROM `blogs` AS `Blog` WHERE MATCH(title, content_short) AGAINST ('asd' IN BOOLEAN MODE) LIMIT 0, 100;"},"original":{"code":"ER_FT_MATCHING_KEY_NOT_FOUND","errno":1191,"sqlState":"HY000","sqlMessage":"Can't find FULLTEXT index matching the column list","sql":"SELECT `id`, `title`, `content_short`, `content`, `coverImg`, `category`, `createdBy`, `createdAt`, `updatedAt` FROM `blogs` AS `Blog` WHERE MATCH(title, content_short) AGAINST ('asd' IN BOOLEAN MODE) LIMIT 0, 100;"},"sql":"SELECT `id`, `title`, `content_short`, `content`, `coverImg`, `category`, `createdBy`, `createdAt`, `updatedAt` FROM `blogs` AS `Blog` WHERE MATCH(title, content_short) AGAINST ('asd' IN BOOLEAN MODE) LIMIT 0, 100;","parameters":{},"statusCode":500}
 [2025-04-06T22:13:42.406Z] /api/blog?search=asd  500 Can't find FULLTEXT index matching the column list  {"name":"SequelizeDatabaseError","parent":{"code":"ER_FT_MATCHING_KEY_NOT_FOUND","errno":1191,"sqlState":"HY000","sqlMessage":"Can't find FULLTEXT index matching the column list","sql":"SELECT `id`, `title`, `content_short`, `content`, `coverImg`, `category`, `createdBy`, `createdAt`, `updatedAt` FROM `blogs` AS `Blog` WHERE MATCH(title, content_short) AGAINST ('asd' IN BOOLEAN MODE) LIMIT 0, 100;"},"original":{"code":"ER_FT_MATCHING_KEY_NOT_FOUND","errno":1191,"sqlState":"HY000","sqlMessage":"Can't find FULLTEXT index matching the column list","sql":"SELECT `id`, `title`, `content_short`, `content`, `coverImg`, `category`, `createdBy`, `createdAt`, `updatedAt` FROM `blogs` AS `Blog` WHERE MATCH(title, content_short) AGAINST ('asd' IN BOOLEAN MODE) LIMIT 0, 100;"},"sql":"SELECT `id`, `title`, `content_short`, `content`, `coverImg`, `category`, `createdBy`, `createdAt`, `updatedAt` FROM `blogs` AS `Blog` WHERE MATCH(title, content_short) AGAINST ('asd' IN BOOLEAN MODE) LIMIT 0, 100;","parameters":{},"statusCode":500}
+[2025-04-10T05:19:15.223Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T05:21:25.152Z] /api/user/get_me  400 JsonWebTokenError :  jwt malformed  
+[2025-04-10T05:21:28.372Z] /api/user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-10T05:21:46.209Z] /api/user/sign_in  400 please provide correct phoneNumber and password  
+[2025-04-10T05:22:34.615Z] /api/newsletter  400 Unknown column 'newsletter.recipientsIds' in 'field list'  
+[2025-04-10T05:22:36.727Z] /api/newsletter/subscriber  400 Unknown column 'recieved_newsletters.recipientsIds' in 'field list'  
+[2025-04-10T05:23:47.493Z] /api/newsletter/subscriber  400 Unknown column 'recieved_newsletters.recipientsIds' in 'field list'  
+[2025-04-10T05:27:35.779Z] /api/user/get_me  401 the token owner (user) does n't exist anymore  
+[2025-04-10T05:28:38.443Z] /api/newsletter  400 jValidationError: newsletter's recipientsIds is a required field  
+[2025-04-10T05:29:43.711Z] /api/newsletter  400 jValidationError: newsletter's recipientsIds is a required field  
+[2025-04-10T05:30:02.510Z] /api/newsletter  400 jValidationError: newsletter's recipientsIds is a required field  
+[2025-04-10T05:30:36.030Z] /api/newsletter  400 jValidationError: newsletter's recipientsIds is a required field  
+[2025-04-10T05:31:25.613Z] /api/newsletter  500 Cannot add or update a child row: a foreign key constraint fails (`d_dalf`.`newsletter_recipients`, CONSTRAINT `newsletter_recipients_ibfk_2` FOREIGN KEY (`newsletterSubId`) REFERENCES `newsletter_subs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)  {"name":"SequelizeForeignKeyConstraintError","parent":{"code":"ER_NO_REFERENCED_ROW_2","errno":1452,"sqlState":"23000","sqlMessage":"Cannot add or update a child row: a foreign key constraint fails (`d_dalf`.`newsletter_recipients`, CONSTRAINT `newsletter_recipients_ibfk_2` FOREIGN KEY (`newsletterSubId`) REFERENCES `newsletter_subs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)","sql":"INSERT INTO `newsletter_recipients` (`createdAt`,`updatedAt`,`newsletterId`,`newsletterSubId`) VALUES ('2025-04-10 05:31:24','2025-04-10 05:31:24',1,1),('2025-04-10 05:31:24','2025-04-10 05:31:24',1,2);"},"original":{"code":"ER_NO_REFERENCED_ROW_2","errno":1452,"sqlState":"23000","sqlMessage":"Cannot add or update a child row: a foreign key constraint fails (`d_dalf`.`newsletter_recipients`, CONSTRAINT `newsletter_recipients_ibfk_2` FOREIGN KEY (`newsletterSubId`) REFERENCES `newsletter_subs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)","sql":"INSERT INTO `newsletter_recipients` (`createdAt`,`updatedAt`,`newsletterId`,`newsletterSubId`) VALUES ('2025-04-10 05:31:24','2025-04-10 05:31:24',1,1),('2025-04-10 05:31:24','2025-04-10 05:31:24',1,2);"},"sql":"INSERT INTO `newsletter_recipients` (`createdAt`,`updatedAt`,`newsletterId`,`newsletterSubId`) VALUES ('2025-04-10 05:31:24','2025-04-10 05:31:24',1,1),('2025-04-10 05:31:24','2025-04-10 05:31:24',1,2);","parameters":{},"table":"newsletter_subs","fields":["newsletterSubId"],"index":"newsletter_recipients_ibfk_2","reltype":"child","statusCode":500}
+[2025-04-10T05:31:45.906Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T05:33:00.328Z] /api/newsletter  400 SValidationError PRIMARY must be unique  
+[2025-04-10T05:33:58.653Z] /api/newsletter  400 SValidationError PRIMARY must be unique  
+[2025-04-10T05:36:11.392Z] /api/newsletter  400 SValidationError PRIMARY must be unique  
+[2025-04-10T05:54:29.852Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:56:57.740Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:07.531Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:11.268Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:13.876Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:15.932Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:17.067Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:17.489Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:17.835Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:18.057Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:18.251Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:18.422Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:18.577Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:18.758Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:19.053Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:19.400Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:20.095Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:52.794Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T05:59:55.393Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:00:01.678Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:00:03.547Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:00:18.075Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:00:26.070Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:00:30.555Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:00:47.347Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:00:51.627Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:00:59.343Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T06:01:00.729Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T06:01:24.176Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:04:21.469Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:04:22.738Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:04:23.264Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:04:23.632Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:04:23.928Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:04:24.248Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:05:11.513Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T06:05:12.770Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T06:05:13.872Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T06:05:14.716Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T06:05:15.324Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T06:05:15.814Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T06:05:45.929Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T06:05:48.938Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T06:05:50.258Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T06:05:51.217Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T06:05:52.580Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-04-10T06:06:55.156Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:07:18.168Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
+[2025-04-10T06:08:04.716Z] /api/newsletter/confirmSub/5  400 no data found with id: 5  

@@ -111,9 +111,13 @@ newsletter.beforeCreate('', async function(model,options){
 
 // // make sure to create the recipients
 newsletter.afterCreate('', async function (model,options){ 
-  await model.addRecipients(model.recipientsIds) 
-  await model.addSuccessful_recipients(successfulRecipients) 
-  await model.addFailed_recipients(failedRecipients) 
+  const uniqueSuccessful = [...new Set(successfulRecipients)];
+  const uniqueFailed = [...new Set(failedRecipients)];
+
+  await model.addRecipients(model.recipientsIds);
+  await model.addSuccessful_recipients(uniqueSuccessful);
+  await model.addFailed_recipients(uniqueFailed);
+
 })
 
 module.exports.model = newsletter
