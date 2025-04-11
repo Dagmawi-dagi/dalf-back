@@ -1438,3 +1438,8 @@ Require stack:
 [2025-04-10T06:06:55.156Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
 [2025-04-10T06:07:18.168Z] /api/newsletter/subscribe  400 SValidationError Validation isEmail on email failed  
 [2025-04-10T06:08:04.716Z] /api/newsletter/confirmSub/5  400 no data found with id: 5  
+[2025-04-11T05:44:53.362Z] /api/contactUs  404 route for '/api/contactUs' not found   
+[2025-04-11T05:45:05.844Z] /api/contactUs  400 jValidationError: "message" is required  
+[2025-04-11T05:45:33.544Z] /api/contactUs  500 user is not defined  {"statusCode":500}
+[2025-04-11T05:46:05.290Z] /api/contactUs  500 content is not defined  {"statusCode":500}
+[2025-04-11T06:32:02.465Z] /api/newsletter/subscribe  400 SValidationError email must be unique  

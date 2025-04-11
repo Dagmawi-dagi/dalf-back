@@ -608,7 +608,7 @@ exports.routes_ref = [
           add_createdBy: false,
         },
       },
-  //     // confirm subscribtion
+      // confirm subscribtion
       { 
         url: '/confirmSub/:id', 
         req_method: 'patch',
@@ -629,19 +629,18 @@ exports.routes_ref = [
       // unsubscribe just confirm === false
       { 
         url: '/unSub/:id', 
-        req_method: 'patch',
+        req_method: 'delete',
         auth: false,
         restrict_to:[],
         upload: {},
         image_upload:false,
         save_file_to: '',
         req_body_validation:false,
-        filter_reqBody_with:['confirmed'],
+        filter_reqBody_with:[],
         controller:{
           model: 'newsletter_sub',
-          crud_method: 'update',
+          crud_method: 'Delete',
           common: true,
-          add_createdBy: false,
         },
       },
 
@@ -719,4 +718,27 @@ exports.routes_ref = [
       },
     ],
   },
+  //----------------- contact us-----------------------------//
+  {
+    route_for : 'contactUs',
+    base_url : '/contactUs',
+    controller_file: 'contact_us', 
+    api: [
+      { 
+        url: '/', 
+        req_method: 'post',
+        auth: false,
+        restrict_to:[],
+        upload: {},
+        image_upload:false,
+        save_file_to: '',
+        req_body_validation:false,
+        filter_reqBody_with:[],
+        controller:{
+          crud_method: 'contactus',
+          common: false,
+        },
+      },
+    ]
+  }
 ]

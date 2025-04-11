@@ -59,7 +59,7 @@ module.exports = class Email {
       to: process.env.AppGmailAccount,
       form: `${info.name},${info.phone}, <${info.email}>`,
       subject: info.subject,
-      text: content
+      text: info.message
     })  
   }
 
