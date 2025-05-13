@@ -73,8 +73,8 @@ exports.routes_ref = [
         filter_reqBody_with:[],
         controller:{
           model: 'user',
-          crud_method: 'getList',
-          common: true,
+          crud_method: 'test',
+          common: false,
           add_createdBy: false,
         },
       },
