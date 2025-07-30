@@ -20,6 +20,7 @@ const newsletter_sub = sequelize.define('newsletter_sub', schema, {
   timestamps: true,
 });
 
+// create associations
 newsletter_sub.associate = (models)=>{
     newsletter_sub.belongsToMany(models.news_letter, {
       through: 'newsletter_successful_recipients', // Junction table name

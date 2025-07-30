@@ -25,7 +25,7 @@ const newsletter = sequelize.define('newsletter', schema, {
   timestamps: true,
 });
 
-
+// create associations
 newsletter.associate = (models)=>{
   newsletter.belongsTo(models.user, { foreignKey: 'createdBy', targetKey: 'id' });
   // Recipients (many-to-many with newsletter_sub)
@@ -46,7 +46,6 @@ newsletter.associate = (models)=>{
     as: 'failed_recipients',
   });
 }
-
 
 newsletter.beforeFind('',function(options){
   options.include = options.include || [];

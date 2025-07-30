@@ -28,7 +28,6 @@ const schema = {
   createdBy:{ type:  DataTypes.INTEGER, allowNull: false},
 }
 
-
 const vacancy = sequelize.define('vacancy', schema, {
   tableName: 'vacancies',
   timestamps: true,
