@@ -1,9 +1,8 @@
-const {models_ref} = require('../models/models_ref')
+const { models_ref } = require('../models/models_ref')
 const app_error_feedback = require('../err_handling/app_error_feedback')
 const catchAsync = require('../features/catchAsync')
 const JWT = require('jsonwebtoken')
 const { promisify } = require('util')
-
 
 exports.auth = catchAsync (async (req,res,next)=>{  
 
