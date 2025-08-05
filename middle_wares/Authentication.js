@@ -27,7 +27,6 @@ exports.auth = catchAsync (async (req,res,next)=>{
         const passwordChangedAtTimestamp = parseInt(user.passwordChangedAt.getTime() / 1000,10) // convert it to milisec
         if ( tokenIssueedAtTimestamp < passwordChangedAtTimestamp ) return next(new app_error_feedback(401, 'user recently changed the password please login again'))        
     }
-
     // pass the curent user to req.user
     req.user = user
     //then finally to the next middleware or handler
