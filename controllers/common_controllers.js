@@ -14,7 +14,6 @@ exports.common_controller =  (model)=>{
       if(req.route_ref.controller.add_createdBy) createObj.createdBy = req.user.id
       const data = await model.create(createObj)
 
-
       res.status(200).json({ 
         status: 'success',
         data
@@ -22,7 +21,6 @@ exports.common_controller =  (model)=>{
     } catch (err) {
       next(err) // globalerrhandler will  handle this err
     }
-
   } 
 
   const getList = async (req,res,next)=>{

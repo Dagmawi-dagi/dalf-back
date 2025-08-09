@@ -1443,3 +1443,5 @@ Require stack:
 [2025-04-11T05:45:33.544Z] /api/contactUs  500 user is not defined  {"statusCode":500}
 [2025-04-11T05:46:05.290Z] /api/contactUs  500 content is not defined  {"statusCode":500}
 [2025-04-11T06:32:02.465Z] /api/newsletter/subscribe  400 SValidationError email must be unique  
+[2025-05-04T13:54:12.355Z] /api/contactUs  500 something went wrong please try again  {"statusCode":500,"status":"Erorr","isOperational":true}
+[2025-05-04T13:58:51.097Z] /api/newsletter/subscribe  400 confirmation email failed. plaese try again later', {"code":"EAUTH","response":"535-5.7.8 Username and Password not accepted. For more information, go to\n535 5.7.8  https://support.google.com/mail/?p=BadCredentials a640c23a62f3a-ad1891a733csm310131966b.73 - gsmtp","responseCode":535,"command":"AUTH PLAIN"}  
